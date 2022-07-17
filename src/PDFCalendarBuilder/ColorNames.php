@@ -175,7 +175,7 @@ class ColorNames
                 list($r, $g, $b) = array($color[0] . $color[0], $color[1] . $color[1],
                     $color[2] . $color[2]);
             } else {
-                return false;
+                return [0, 0, 0];
             }
 
             $r = hexdec($r);

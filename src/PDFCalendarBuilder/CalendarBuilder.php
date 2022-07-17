@@ -852,6 +852,14 @@ class CalendarBuilder
     }
 
     /**
+     * @return TCPDF
+     */
+    public function getPDF():TCPDF
+    {
+        return $this->pdf;
+    }
+
+    /**
      * Default is: title - monthName Year
      *
      * @return string title to be printed on top of the calendar
