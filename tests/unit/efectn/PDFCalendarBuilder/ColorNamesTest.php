@@ -1,23 +1,25 @@
 <?php
 
-namespace aschild\PDFCalendarBuilder;
+namespace efectn\PDFCalendarBuilder;
 
-class ExampleTest extends \Codeception\Test\Unit {
+class ExampleTest extends \Codeception\Test\Unit
+{
 
     /**
      * @var \UnitTester
      */
     protected $tester;
 
-    protected function _before() {
-        
+    protected function _before()
+    {
     }
 
-    protected function _after() {
-        
+    protected function _after()
+    {
     }
 
-    public function testGetColor() {
+    public function testGetColor()
+    {
         $expectedResult1 = array("red" => 0xff, "green" => 0xff, "blue" => 0xff);
         $result1= ColorNames::getColor("white");
         \PHPUnit\Framework\Assert::assertTrue(arrays_are_similar($expectedResult1, $result1), "white arrays not identical, expected: ".var_export($expectedResult1, true).' got: '. var_export($result1, true));
@@ -34,22 +36,21 @@ class ExampleTest extends \Codeception\Test\Unit {
         $expectedResult4 = array(0x0, 0x0, 0x0);
         $result4 = ColorNames::html2rgb("#000000");
         \PHPUnit\Framework\Assert::assertTrue(arrays_are_similar($expectedResult4, $result4), "#000000 arrays not identical, expected: ".var_export($expectedResult4, true).' got: '. var_export($result4, true));
-
     }
-
 }
 
 /**
  * Determine if two associative arrays are similar
  *
  * Both arrays must have the same indexes with identical values
- * without respect to key ordering 
- * 
+ * without respect to key ordering
+ *
  * @param array $a
  * @param array $b
  * @return bool
  */
-function arrays_are_similar($a, $b) {
+function arrays_are_similar($a, $b)
+{
     // if the indexes don't match, return immediately
     if (count(array_diff_assoc($a, $b))) {
         return false;

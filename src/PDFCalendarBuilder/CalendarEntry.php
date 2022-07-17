@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 
-namespace aschild\PDFCalendarBuilder;
+namespace efectn\PDFCalendarBuilder;
 
 /**
  * Description of CalendarEntry

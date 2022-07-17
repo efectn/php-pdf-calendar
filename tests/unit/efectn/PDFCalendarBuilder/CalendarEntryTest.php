@@ -1,28 +1,27 @@
 <?php
 
-namespace aschild\PDFCalendarBuilder;
+namespace efectn\PDFCalendarBuilder;
 
-class CalendarEntryTest extends \Codeception\Test\Unit {
+class CalendarEntryTest extends \Codeception\Test\Unit
+{
 
     /**
      * @var \UnitTester
      */
     protected $tester;
 
-    protected function _before() {
-        
+    protected function _before()
+    {
     }
 
-    protected function _after() {
-        
+    protected function _after()
+    {
     }
 
     // tests
-    public function testConstructor() {
-        
+    public function testConstructor()
+    {
         $now= new \DateTime();
         $e= new CalendarEntry($now, $now, "Message", ColorNames::getColor("black"), ColorNames::html2rgb("white"));
-        
     }
-
 }

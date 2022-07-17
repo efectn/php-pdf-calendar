@@ -1,24 +1,26 @@
 <?php
 
-namespace aschild\PDFCalendarBuilder;
+namespace efectn\PDFCalendarBuilder;
 
-class CalendarBuilderDaySpannersTest extends \Codeception\Test\Unit {
+class CalendarBuilderDaySpannersTest extends \Codeception\Test\Unit
+{
 
     /**
      * @var \UnitTester
      */
     protected $tester;
 
-    protected function _before() {
-        
+    protected function _before()
+    {
     }
 
-    protected function _after() {
-        
+    protected function _after()
+    {
     }
 
     // tests
-    public function testCalendarSpanner1Entry() {
+    public function testCalendarSpanner1Entry()
+    {
         $outFile = codecept_output_dir() . "CalendarEntryDaySpanner1.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -47,7 +49,8 @@ class CalendarBuilderDaySpannersTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testCalendarSpanner2Entry() {
+    public function testCalendarSpanner2Entry()
+    {
         $outFile = codecept_output_dir() . "CalendarEntryDaySpanner2.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -67,7 +70,8 @@ class CalendarBuilderDaySpannersTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testCalendarSpanner3Entry() {
+    public function testCalendarSpanner3Entry()
+    {
         $outFile = codecept_output_dir() . "CalendarEntryDaySpanner3.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -86,5 +90,4 @@ class CalendarBuilderDaySpannersTest extends \Codeception\Test\Unit {
         $cal->Output($outFile, "F");
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
-    
 }

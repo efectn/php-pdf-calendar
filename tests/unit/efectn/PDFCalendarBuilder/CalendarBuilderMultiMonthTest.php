@@ -1,24 +1,26 @@
 <?php
 
-namespace aschild\PDFCalendarBuilder;
+namespace efectn\PDFCalendarBuilder;
 
-class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
+class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit
+{
 
     /**
      * @var \UnitTester
      */
     protected $tester;
 
-    protected function _before() {
-        
+    protected function _before()
+    {
     }
 
-    protected function _after() {
-        
+    protected function _after()
+    {
     }
 
     // tests
-    public function testEmptyCalendarUS() {
+    public function testEmptyCalendarUS()
+    {
         $outFile = codecept_output_dir() . "EmptyCalendar_US-2Months.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -34,7 +36,8 @@ class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testEmptyCalendarEU() {
+    public function testEmptyCalendarEU()
+    {
         $outFile = codecept_output_dir() . "EmptyCalendar_EU-2Months.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -50,7 +53,8 @@ class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testEmptyNoMargingsCalendar() {
+    public function testEmptyNoMargingsCalendar()
+    {
         $outFile = codecept_output_dir() . "EmptyNoMargingsCalendar-2Months.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -66,7 +70,8 @@ class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testCalendar1Entry() {
+    public function testCalendar1Entry()
+    {
         $outFile = codecept_output_dir() . "Calendar1Entry-2Months.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -87,7 +92,8 @@ class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
     
-    public function testCalendar1EntryPortrait() {
+    public function testCalendar1EntryPortrait()
+    {
         $outFile = codecept_output_dir() . "Calendar1EntryPortrait-2Months.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -108,7 +114,8 @@ class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testExpandOneRowEntry() {
+    public function testExpandOneRowEntry()
+    {
         $outFile = codecept_output_dir() . "ExpandOneRowEntry-2Months.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -150,7 +157,8 @@ class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testResizeRowsAndShrinkFontSize() {
+    public function testResizeRowsAndShrinkFontSize()
+    {
         $outFile = codecept_output_dir() . "ResizeRowAndShrinkFontSize-2Months.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -212,7 +220,8 @@ class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testResizeRowsPortrait() {
+    public function testResizeRowsPortrait()
+    {
         $outFile = codecept_output_dir() . "ResizeRowsPortrait-2Months.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -274,7 +283,8 @@ class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
     
-    public function testShrinkFontSize() {
+    public function testShrinkFontSize()
+    {
         $outFile = codecept_output_dir() . "ShrinkFontSize-2Months.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -337,7 +347,8 @@ class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testBoxOverflows() {
+    public function testBoxOverflows()
+    {
         $outFile = codecept_output_dir() . "BoxOverflow-2Months.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -400,7 +411,8 @@ class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
     
-    public function testCalendarCategories() {
+    public function testCalendarCategories()
+    {
         $outFile = codecept_output_dir() . "CalendarCategories-2Months.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -434,7 +446,8 @@ class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testResizeRowsAndShrinkFontSizeDaySpanners() {
+    public function testResizeRowsAndShrinkFontSizeDaySpanners()
+    {
         $outFile = codecept_output_dir() . "ResizeRowAndShrinkFontSizeDaySpanners-2Months.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -497,7 +510,8 @@ class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
     
-    public function testCalendar12Entry() {
+    public function testCalendar12Entry()
+    {
         $outFile = codecept_output_dir() . "Calendar1Entry-12Months.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -512,8 +526,7 @@ class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
         $endDate = \DateTime::createFromFormat("Y-m-d H:i:s", "2019-01-11 12:00:00");
         $cal->addEntry($startDate, $endDate, "Only hours", "white", "blue");
         $cal->buildCalendar();
-        for ($i=2 ; $i <= 12; $i++)
-        {
+        for ($i=2 ; $i <= 12; $i++) {
             $cal->addMonth($i, 2019, "Title");
             $startDate = \DateTime::createFromFormat("Y-m-d H:i:s", "2019-".$i."-10 11:00:00");
             $endDate = \DateTime::createFromFormat("Y-m-d H:i:s", "2019-".$i."-10 12:00:00");
@@ -526,5 +539,4 @@ class CalendarBuilderMultiMonthTest extends \Codeception\Test\Unit {
         $cal->Output($outFile, "F");
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
-    
 }

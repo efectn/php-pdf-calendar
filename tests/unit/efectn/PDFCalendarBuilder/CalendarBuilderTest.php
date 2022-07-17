@@ -1,24 +1,26 @@
 <?php
 
-namespace aschild\PDFCalendarBuilder;
+namespace efectn\PDFCalendarBuilder;
 
-class CalendarBuilderTest extends \Codeception\Test\Unit {
+class CalendarBuilderTest extends \Codeception\Test\Unit
+{
 
     /**
      * @var \UnitTester
      */
     protected $tester;
 
-    protected function _before() {
-        
+    protected function _before()
+    {
     }
 
-    protected function _after() {
-        
+    protected function _after()
+    {
     }
 
     // tests
-    public function testEmptyCalendarUS() {
+    public function testEmptyCalendarUS()
+    {
         $outFile = codecept_output_dir() . "EmptyCalendar_US.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -32,7 +34,8 @@ class CalendarBuilderTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testEmptyCalendarEU() {
+    public function testEmptyCalendarEU()
+    {
         $outFile = codecept_output_dir() . "EmptyCalendar_EU.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -46,7 +49,8 @@ class CalendarBuilderTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testEmptyNoMargingsCalendar() {
+    public function testEmptyNoMargingsCalendar()
+    {
         $outFile = codecept_output_dir() . "EmptyNoMargingsCalendar.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -60,7 +64,8 @@ class CalendarBuilderTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testCalendar1Entry() {
+    public function testCalendar1Entry()
+    {
         $outFile = codecept_output_dir() . "Calendar1Entry.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -76,7 +81,8 @@ class CalendarBuilderTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
     
-    public function testCalendar1UmlautsEntry() {
+    public function testCalendar1UmlautsEntry()
+    {
         $outFile = codecept_output_dir() . "Calendar1UmlautsEntry.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -92,7 +98,8 @@ class CalendarBuilderTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testCalendar1EntryPortrait() {
+    public function testCalendar1EntryPortrait()
+    {
         $outFile = codecept_output_dir() . "Calendar1EntryPortrait.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -108,7 +115,8 @@ class CalendarBuilderTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testCalendar2Entry() {
+    public function testCalendar2Entry()
+    {
         $outFile = codecept_output_dir() . "Calendar2Entry.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -128,7 +136,8 @@ class CalendarBuilderTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testExpandOneRowEntry() {
+    public function testExpandOneRowEntry()
+    {
         $outFile = codecept_output_dir() . "ExpandOneRowEntry.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -156,7 +165,8 @@ class CalendarBuilderTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testResizeRowsAndShrinkFontSize() {
+    public function testResizeRowsAndShrinkFontSize()
+    {
         $outFile = codecept_output_dir() . "ResizeRowAndShrinkFontSize.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -195,7 +205,8 @@ class CalendarBuilderTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testResizeRowsPortrait() {
+    public function testResizeRowsPortrait()
+    {
         $outFile = codecept_output_dir() . "ResizeRowsPortrait.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -234,7 +245,8 @@ class CalendarBuilderTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
     
-    public function testShrinkFontSize() {
+    public function testShrinkFontSize()
+    {
         $outFile = codecept_output_dir() . "ShrinkFontSize.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -273,7 +285,8 @@ class CalendarBuilderTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testBoxOverflows() {
+    public function testBoxOverflows()
+    {
         $outFile = codecept_output_dir() . "BoxOverflow.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -312,7 +325,8 @@ class CalendarBuilderTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
     
-    public function testCalendarCategories() {
+    public function testCalendarCategories()
+    {
         $outFile = codecept_output_dir() . "CalendarCategories.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);
@@ -337,7 +351,8 @@ class CalendarBuilderTest extends \Codeception\Test\Unit {
         \PHPUnit\Framework\Assert::assertTrue(file_exists($outFile), "Output file missing");
     }
 
-    public function testResizeRowsAndShrinkFontSizeDaySpanners() {
+    public function testResizeRowsAndShrinkFontSizeDaySpanners()
+    {
         $outFile = codecept_output_dir() . "ResizeRowAndShrinkFontSizeDaySpanners.pdf";
         if (file_exists($outFile)) {
             unlink($outFile);

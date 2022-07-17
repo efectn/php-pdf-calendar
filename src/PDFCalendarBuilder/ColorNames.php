@@ -1,8 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace aschild\PDFCalendarBuilder;
-
+namespace efectn\PDFCalendarBuilder;
 
 /**
  * Description of ColorNames
@@ -11,7 +10,7 @@ namespace aschild\PDFCalendarBuilder;
  */
 class ColorNames
 {
-    private static $colors = ARRAY(
+    private static $colors = array(
 //  Colors  as  they  are  defined  in  HTML  3.2
         "black" => array("red" => 0x00, "green" => 0x00, "blue" => 0x00),
         "maroon" => array("red" => 0x80, "green" => 0x00, "blue" => 0x00),
@@ -163,7 +162,8 @@ class ColorNames
      * @param type $color
      * @return array with rgb colors
      */
-    public static function html2rgb(string $color): array {
+    public static function html2rgb(string $color): array
+    {
         if ($color[0] == '#') {
             $color = substr($color, 1);
 
@@ -194,18 +194,14 @@ class ColorNames
      * @param type $color Color in HTML notation #ddffff or black
      * @return Color in HTML notation, with(out) #
      */
-    public static function html2html(string $color, bool $withDash= true): string {
+    public static function html2html(string $color, bool $withDash= true): string
+    {
         $rgb= ColorNames::html2rgb($color);
         $retVal= dechex($rgb[0]) . dechex($rgb[1]) . dechex($rgb[2]);
-        if ($withDash)
-        {
+        if ($withDash) {
             return "#".retVal;
-        }
-        else
-        {
+        } else {
             return $retVal;
         }
     }
-    
-    
 }

@@ -1,23 +1,31 @@
 {
-    "name": "a-schild/pdfcalendarbuilder",
+    "name": "efectn/php-pdf-calendar",
     "description": "PDF month calendar generator",
     "keywords": ["pdf", "calendar"],
-    "homepage": "https://github.com/a-schild/pdfcalendarbuilder",
+    "homepage": "https://github.com/efectn/php-pdf-calendar",
     "time": "2019-03-27",
     "license": "Apache-2.0",
-    "authors": [
+    "authors": [{
+            "name": "Muhammed Efe Çetin",
+            "email": "efectn@protonmail.com",
+            "homepage": "https://6tel.net",
+            "role": "Maintainer"
+        },
         {
             "name": "André Schild",
             "email": "andre@schild.ws",
             "homepage": "https://github.com/a-schild",
-            "role": "Developer"
-        }],
+            "role": "Original Developer"
+        }
+    ],
     "require": {
-        "php": "^7.3",
-        "tecnickcom/tcpdf": "^6.2.26"
+        "php": ">=7.4",
+        "tecnickcom/tcpdf": "^6.4.4"
     },
     "require-dev": {},
     "autoload": {
-           "psr-4": {"aschild\\": "src/"}
+        "psr-4": {
+            "efectn\\": "src/"
         }
+    }
 }
