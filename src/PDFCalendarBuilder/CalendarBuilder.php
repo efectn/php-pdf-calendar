@@ -854,7 +854,7 @@ class CalendarBuilder
     /**
      * @return TCPDF
      */
-    public function getPDF():TCPDF
+    public function getPDF():\TCPDF
     {
         return $this->pdf;
     }
