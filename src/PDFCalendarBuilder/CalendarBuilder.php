@@ -87,6 +87,7 @@ class CalendarBuilder
     private $footerFontSize = 8;
     private $shrinkFontSizeFactor = 0.95; // Reduce the font size by 10% and try once more
     private $weekday_of_first;
+    private $overridenGridHeight;
 
     /**
      * Create monthly calendar for the given month&year
@@ -230,6 +231,11 @@ class CalendarBuilder
         $this->pdf->Ln();
         $this->pdf->SetFillColor(128, 128, 128);
         $this->pdf->SetTextColor(0, 0, 0);
+        if ($this->overridenGridHeight) {
+            $this->gridHeight = $this->overridenGridHeight;
+        } else {
+            $this->gridHeight = $this->pdf->getPageHeight() - $this->pdf->GetY() - $this->marginBottom - $this->legendHeight - ($this->fontHeight / 2);
+        }
         $this->gridHeight = $this->pdf->getPageHeight() - $this->pdf->GetY() - $this->marginBottom - $this->legendHeight - ($this->fontHeight / 2);
         $cellHeight = ($this->gridHeight) / $this->num_of_rows;
 
@@ -485,6 +491,11 @@ class CalendarBuilder
     public function setWeekStarts(int $weekStarts): void
     {
         $this->weekStarts = $weekStarts;
+    }
+
+    public function overrideGridHeight(int $height): void
+    {
+        $this->overridenGridHeight = $height;
     }
 
     /**
