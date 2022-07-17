@@ -236,7 +236,6 @@ class CalendarBuilder
         } else {
             $this->gridHeight = $this->pdf->getPageHeight() - $this->pdf->GetY() - $this->marginBottom - $this->legendHeight - ($this->fontHeight / 2);
         }
-        $this->gridHeight = $this->pdf->getPageHeight() - $this->pdf->GetY() - $this->marginBottom - $this->legendHeight - ($this->fontHeight / 2);
         $cellHeight = ($this->gridHeight) / $this->num_of_rows;
 
         /* Render the grid */
