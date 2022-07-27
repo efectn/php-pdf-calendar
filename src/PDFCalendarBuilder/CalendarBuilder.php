@@ -36,6 +36,7 @@ class CalendarBuilder
     private $days_in_month; // The number of days for the calendar
     private $weekStarts = 0;    // On which day does the week start? 0=Sunday, 1=Monday
     private $printEndTime = false; // Do we print the end time of the entries?
+    private $showFullTime = false;
     private $resizeRowHeightsIfNeeded = true; // Resize the row heights to fitt all entries on one page
     private $shrinkFontSizeIfNeeded = true; // use smaller font for entries unless everything fits on one page
     //private $addAdditionalPagesIfNeeded = true; // Add additional pages when not everything fits on one page
@@ -147,7 +148,7 @@ class CalendarBuilder
         //$this->pdf->setBottomMargin(0);
         $this->weekday_of_first = ($this->date["wday"] + 7 - $this->weekStarts) % 7;
         $this->num_of_rows = ceil(($this->days_in_month + $this->weekday_of_first) / 7.0);
-        
+
         $this->pdf->SetAutoPageBreak(false);
         $this->pdf->AddPage();
         $this->gridWidth = $this->pdf->getPageWidth() - $this->marginRight - $this->marginLeft;
@@ -180,15 +181,15 @@ class CalendarBuilder
         }
         $this->weekday_of_first = ($this->date["wday"] + 7 - $this->weekStarts) % 7;
         $this->num_of_rows = ceil(($this->days_in_month + $this->weekday_of_first) / 7.0);
-        
+
         $this->pdf->AddPage();
         $this->gridWidth = $this->pdf->getPageWidth() - $this->marginRight - $this->marginLeft;
         $this->cellWidth = $this->gridWidth / 7;
-        
+
         $this->rowHeights = array(); // Array holding the row heights of the last grid drawn
         $this->gridIsDrawn = false;
     }
-    
+
     /**
      *
      * Draw the grid with the column headers and the day numbers in the cells
@@ -342,7 +343,7 @@ class CalendarBuilder
             $startDate = $calendarEntry->getStartDate();
             if ($startDate->format('G:i') == "0:00") {
                 $txt= "";
-            } elseif ($startDate->format('i') == "00") {
+            } elseif ($startDate->format('i') == "00" && !$this->showFullTime) {
                 $txt = $startDate->format('G');
             } else {
                 $txt = $startDate->format('G:i');
@@ -351,16 +352,18 @@ class CalendarBuilder
         if ($this->printEndTime && ! $calendarEntry->isHideEndTime()) {
             $endDate = $calendarEntry->getEndDate();
             if ($endDate != null) {
-                if ($endDate->format('i') == "00") {
+                if ($endDate->format('i') == "00" && !$this->showFullTime) {
                     $txt .= '-' . $endDate->format('G');
                 } else {
                     $txt .= '-' . $endDate->format('G:i');
                 }
             }
         }
-        if (strlen($txt) > 0 && (!$calendarEntry->isHideStartTime()
+        if (strlen($txt) > 0 && !$this->showFullTime && (!$calendarEntry->isHideStartTime()
             || ($this->printEndTime && ! $calendarEntry->isHideEndTime()))) {
             $txt .= 'h ';
+        } else {
+            $txt .= ' ';
         }
         $txt.=  $calendarEntry->getMessage();
         $this->pdf->MultiCell(
@@ -716,6 +719,16 @@ class CalendarBuilder
     public function setPrintEndTime(bool $printEndTime): void
     {
         $this->printEndTime = $printEndTime;
+    }
+
+    /**
+    *
+    * @param bool $showFullTime Do we print times fully?
+    * @return void
+    */
+    public function setShowFullTime(bool $showFullTime): void
+    {
+        $this->showFullTime = $showFullTime;
     }
 
     /**
